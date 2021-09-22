@@ -1,6 +1,69 @@
+import tp1Objetos.*
 
-test "testX" {
-
-	assert.that(true)
-
+//Tests Chasqui
+test "Chasqui no debe poder enviar un mensaje largo" 
+{
+	assert.notThat(chasqui.puedeMandar("12345678901234567890123456789012345678901234567890"))
 }
+
+test "Chasqui debe poder enviar un mensaje corto" 
+{
+	assert.that(chasqui.puedeMandar("1234567890123456789012345678901234567890123456789"))
+}
+
+test "Chasqui: Costo de mensaje"
+{
+	assert.equals(chasqui.costo("123456789012"),24)
+}
+
+//Tests Sherpa
+
+//Tests Messich
+
+//Tests Pali
+test "Pali no debe poder enviar el mensaje:"
+{
+	assert.notThat(pali.puedeMandar("abracadabra"))
+}
+
+test "Pali debe poder enviar el mensaje:"
+{
+	assert.that(pali.puedeMandar("Anita lava la tina"))
+}
+
+test "Pali: Costo de mensaje"
+{
+	assert.equals(pali.costo("Anita lava la tina"),72)
+}
+
+test "Pali: Costo de mensaje largo"
+{
+	assert.equals(pali.costo("Allí va Ramón y no maravilla"),80)
+}
+
+//Tests Agencia de mensajeria
+test "Eleccion para mensaje: nomelacont"
+{
+	assert.equals(agenciaMensajeria.pedirMensajero("nomelancont"),messich)
+}
+
+test "Eleccion para mensaje: hola chau hola chau hola chau hola chau hola chau"
+{
+	assert.equals(agenciaMensajeria.pedirMensajero("hola chau hola chau hola chau hola chau hola chau"),chasqui)
+}
+
+test "Eleccion para mensaje: al cortar los tomates en juliana, luego hay que sofreirlos con ajo y morrón verde o rojo si no se tiene a mano"
+{
+	assert.equals(agenciaMensajeria.pedirMensajero("al cortar los tomates en juliana, luego hay que sofreirlos con ajo y morrón verde o rojo si no se tiene a mano"),sherpa)
+}
+
+
+
+
+
+
+
+
+
+
+
