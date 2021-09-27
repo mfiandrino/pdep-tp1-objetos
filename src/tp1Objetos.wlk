@@ -12,8 +12,17 @@ object sherpa
 
 object messich
 {
-	method puedeMandar(mensaje) = false
-	method costo(mensaje) = 0
+	var valorCosto = 10
+	var contPalabras = 0
+	method puedeMandar(mensaje) = mensaje.take(1) != 'a'
+	method setearValorCosto(n) {
+		valorCosto = n
+	} 
+	method costo(mensaje){
+		contPalabras = (mensaje.words()).size()
+		
+		return valorCosto * contPalabras
+	} 
 }
 
 object pali
