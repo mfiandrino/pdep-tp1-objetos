@@ -18,7 +18,22 @@ test "Chasqui: Costo de mensaje"
 
 //Tests Sherpa
 
-//Tests Messich
+//Tests Messich"
+
+test "Messich: No debe poder enviar el mensaje: abracadabra (empieza con a)"
+{
+	assert.notThat(messich.puedeMandar("abracadabra"))
+}
+
+test "Messich: Debe poder enviar un mensaje par: pata de cabra (no empieza con ‘a’)"
+{
+	assert.that(messich.puedeMandar("pata de cabra"))
+}
+ 
+test "Messich: Costo de mensaje"
+{
+	assert.equals(messich.costo("para de cabra"),30)
+}
 
 //Tests Pali
 test "Pali no debe poder enviar el mensaje:"
