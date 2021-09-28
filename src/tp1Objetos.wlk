@@ -27,7 +27,18 @@ object messich
 
 object pali
 {
-	method puedeMandar(mensaje) = mensaje == mensaje.reverse() //Ver porque cuenta espacios y es case sensitive
+	/*
+	method puedeMandar(mensaje) 
+	{
+		const mensajeLimpio = mensaje.words().join("").toLowerCase()
+		return mensajeLimpio.equals(mensajeLimpio.reverse())
+	}*/
+	
+	method puedeMandar(mensaje) 
+	{
+		const mensajeSinEspacios = mensaje.words().join("")
+		return mensajeSinEspacios.equalsIgnoreCase(mensajeSinEspacios.reverse())
+	}
 	
 	method costo(mensaje)
 	{
@@ -37,6 +48,8 @@ object pali
 		else
 			return costo
 	} 
+	
+	
 }
 
 object agenciaMensajeria
