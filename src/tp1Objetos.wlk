@@ -13,15 +13,12 @@ object sherpa
 object messich
 {
 	var valorCosto = 10
-	var contPalabras = 0
-	method puedeMandar(mensaje) = mensaje.take(1) != 'a'
+	method puedeMandar(mensaje) = not mensaje.startsWith('a') //Otra opción podría ser mensaje.take(1) != 'a'
 	method setearValorCosto(n) {
 		valorCosto = n
 	} 
 	method costo(mensaje){
-		contPalabras = (mensaje.words()).size()
-		
-		return valorCosto * contPalabras
+		return valorCosto * (mensaje.words()).size()
 	} 
 }
 
