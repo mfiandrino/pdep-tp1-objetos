@@ -17,6 +17,20 @@ test "Chasqui: Costo de mensaje"
 }
 
 //Tests Sherpa
+test "Sherpa no debe poder enviar un mensaje impar"
+{
+assert.notThat(sherpa.puedeMandar("123456789"))
+}
+
+test "Sherpa debe poder enviar un mensaje par"
+{
+	assert.that(sherpa.puedeMandar("1234567890"))
+}
+
+test "Calcular costo mensaje Sherpa"
+{
+	assert.equals(sherpa.costo("1234567890"),60)
+}
 
 //Tests Messich"
 

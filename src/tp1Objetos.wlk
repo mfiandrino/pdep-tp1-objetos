@@ -6,8 +6,13 @@ object chasqui
 
 object sherpa
 {
-	method puedeMandar(mensaje) = false
-	method costo(mensaje) = 0
+	var valorMensaje = 60
+	
+	method puedeMandar(mensaje) = (mensaje.length()).even()
+	method cambiarValor(nuevoValorMensaje) {
+		valorMensaje = nuevoValorMensaje
+	}
+	method costo(mensaje) = valorMensaje
 }
 
 object messich
