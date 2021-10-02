@@ -29,13 +29,6 @@ object messich
 
 object pali
 {
-	/*
-	method puedeMandar(mensaje) 
-	{
-		const mensajeLimpio = mensaje.words().join("").toLowerCase()
-		return mensajeLimpio.equals(mensajeLimpio.reverse())
-	}*/
-	
 	method puedeMandar(mensaje) 
 	{
 		const mensajeSinEspacios = mensaje.words().join("")
@@ -50,8 +43,6 @@ object pali
 		else
 			return costo
 	} 
-	
-	
 }
 
 object agenciaMensajeria
