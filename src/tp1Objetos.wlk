@@ -6,30 +6,25 @@ object chasqui
 
 object sherpa
 {
-	var valorMensaje = 60
-	
-	method puedeMandar(mensaje) = (mensaje.length()).even()
-	method cambiarValor(nuevoValorMensaje) {
-		valorMensaje = nuevoValorMensaje
-	}
+	var property valorMensaje = 60
+
+	method puedeMandar(mensaje) = mensaje.length().even()
 	method costo(mensaje) = valorMensaje
 }
 
 object messich
 {
-	var valorCosto = 10
-	method puedeMandar(mensaje) = not mensaje.startsWith('a') //Otra opción podría ser mensaje.take(1) != 'a'
-	method setearValorCosto(n) {
-		valorCosto = n
-	} 
-	method costo(mensaje){
-		return valorCosto * (mensaje.words()).size()
-	} 
+	var property valorCosto = 10
+	
+	method puedeMandar(mensaje) = not mensaje.startsWith('a') //Otra opción podría ser mensaje.take(1) != 'a' 
+	method costo(mensaje) = valorCosto * mensaje.words().size()
 }
 
 object pali
 {
-	method puedeMandar(mensaje) 
+	method puedeMandar(mensaje) = self.esPalindromo(mensaje)
+	
+	method esPalindromo(mensaje)
 	{
 		const mensajeSinEspacios = mensaje.words().join("")
 		return mensajeSinEspacios.equalsIgnoreCase(mensajeSinEspacios.reverse())
@@ -38,10 +33,7 @@ object pali
 	method costo(mensaje)
 	{
 		const costo = mensaje.length() * 4
-		if(costo > 80)
-			return 80
-		else
-			return costo
+		return costo.min(80)
 	} 
 }
 

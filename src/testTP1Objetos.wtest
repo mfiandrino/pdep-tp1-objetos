@@ -34,12 +34,12 @@ test "Calcular costo mensaje Sherpa"
 
 //Tests Messich"
 
-test "Messich: No debe poder enviar el mensaje: abracadabra (empieza con a)"
+test "Messich: No debe poder enviar el mensaje si empieza con 'a'"
 {
 	assert.notThat(messich.puedeMandar("abracadabra"))
 }
 
-test "Messich: Debe poder enviar un mensaje par: pata de cabra (no empieza con ‘a’)"
+test "Messich: Debe poder enviar un mensaje par que no empieza con 'a'"
 {
 	assert.that(messich.puedeMandar("pata de cabra"))
 }
@@ -50,17 +50,17 @@ test "Messich: Costo de mensaje"
 }
 
 //Tests Pali
-test "Pali no debe poder enviar el mensaje:"
+test "Pali no debe poder enviar el mensajes no palindromos:"
 {
 	assert.notThat(pali.puedeMandar("abracadabra"))
 }
 
-test "Pali debe poder enviar el mensaje:"
+test "Pali debe poder enviar el mensajes palindromos:"
 {
 	assert.that(pali.puedeMandar("Anita lava la tina"))
 }
 
-test "Pali: Costo de mensaje"
+test "Pali: Costo de mensaje corto"
 {
 	assert.equals(pali.costo("Anita lava la tina"),72)
 }
